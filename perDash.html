@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Web Dev Dashboard</title>
+</head>
+
+<body class="perBackground">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Personal Dashboard</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./profDash.html">WEB DEV Dashboard</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container main">
+    <div class="row row-1">
+      <!-- clock -->
+      <div class="col s12"></div>
+        <div id="clockDiv" class="blue lighten-4 clock-div">
+          <h4 id="clock" class="clock"></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+       <!--Sign in Personal Dash-->
+      <div id="formContainer" class="col s12 m12 l4 sign-in blue-grey">
+        <h4>Sign In:<Input:datetime-local></Input:datetime-local>
+        </h4>
+        <input class="username" type="text" name="username" placeholder="Username" id="usernameInput">
+        <input class="password" type="password" name="username" placeholder="Password" id="passwordInput">
+        <button class="createUser btn" id="createBtn" onclick="createUser();">Create User</button>
+        <button class="login btn" id="loginBtn" onclick="validation();">Sign In</button>
+        <p id="notice"></p>
+      </div>
+
+      <!-- weather widget -->
+      <div id="weatherDiv" class="col s12 l3 indigo lighten-5 weather light-blue accent-2">
+        <div class="row">
+          <h4 class="col">Weather:</h4>
+          <form id="userForm" class="col s12">
+            <input type="search" id="citySearch" placeholder="Enter City" class="">
+            <button class="btn-small waves-effect waves-light weather-btn" type="submit" name="action">Search</button>
+          </form>
+        </div>
+        <div id="cityResponse" class="row">
+          <div class="col s12">
+            <h5 id="city" class="black-text"><span id="icon-info" class="black-text accent-4"></span></h5>
+            <ul id="current">
+              <li class="black-text accent-1" id="currentTemp"></li>
+              <li class="black-text accent-1" id="currentWind"></li>
+              <li class="black-text accent-1" id="currentHum"></li>
+              <li class="black-text accent-1" id="curentUV"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h3 id="modal-text"></h3>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="taskDiv" class="col s12 m12 l4 indigo lighten-3 container task-div">
+        <div class="row">
+          <div class="task-container">
+            <h4 class="task-header">Daily Tasks:</h4>
+            <div class="card task-card">
+              <div class="row task-row">
+                <div class="input-field col s10 task-div" id="task1">
+                  <input type="text" placeholder="Enter Task" class="text-input">
+                </div>
+                <a class="btn-floating btn-small save-btn" id="task-1"><i class="material-icons save-icon">+</i></a>
+              </div>
+              <div class="row task-row">
+                <div class="input-field col s10 task-div" id="task2">
+                  <input type="text" placeholder="Enter Task" class="text-input">
+                </div>
+                <a class="btn-floating btn-small waves-effect save-btn" id="task-2"><i class="material-icons save-icon">+</i></a>
+              </div>
+              <div class="row task-row">
+                <div class="input-field col s10 task-div" id="task2">
+                  <input type="text" placeholder="Enter Task" class="text-input">
+                </div>
+                <a class="btn-floating btn-small waves-effect save-btn" id="task-2"><i
+                    class="material-icons save-icon">+</i></a>
+              </div>
+              <div class="row task-row">
+                <div class="input-field col s10 task-div" id="task2">
+                  <input type="text" placeholder="Enter Task" class="text-input">
+                </div>
+                <a class="btn-floating btn-small waves-effect save-btn" id="task-2"><i
+                    class="material-icons save-icon">+</i></a>
+              </div>
+              <div class="row task-row">
+                <div class="input-field col s10 task-div" id="task2">
+                  <input type="text" placeholder="Enter Task" class="text-input">
+                </div>
+                <a class="btn-floating btn-small waves-effect save-btn" id="task-2"><i
+                    class="material-icons save-icon">+</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+    <!-- News -->
+      <div id="newsDiv" class="col s12 m12 l8 teal lighten-2 news-card">
+        <div class="card news-body">
+          <div class="card-content white-text">
+            <span class="card-title" id="news-card">
+              <h4 class="news-header">Top News Today:</h4>
+            </span>
+            <form id="news-search">
+              <h6 class="news-header">Search News Topics</h6>
+              <input id="news-input" class="news-input" type="text" placeholder="Enter Keyword">
+              <button type="submit" class="news-btn">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- quote -->
+      <div id="quoteDiv" class="col m12 l3"><iframe src="https://giphy.com/embed/3ohhwfHsKKVNi9mfTi" width="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/meme-comics-comic-3ohhwfHsKKVNi9mfTi">via GIPHY</a></p></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="./assets/js/signIn.js"></script>
+  <script src="./assets/js/personal.js"></script>
+</body>
+
+</html>
